@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宠物每日食量与饮水量计算器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator-card">
+            <h1>宠物每日食量与饮水量计算器</h1>
+            <div class="form-group">
+                <label>选择宠物类型：</label>
+                <div class="pet-selector">
+                    <button id="dog-btn" class="pet-btn active">狗</button>
+                    <button id="cat-btn" class="pet-btn">猫</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="weight">宠物体重 (kg)：</label>
+                <input type="number" id="weight" min="0.1" step="0.1" placeholder="请输入体重">
+            </div>
+            <button id="calculate-btn">计算</button>
+            <div id="result" class="result-container">
+                <div class="result-card">
+                    <h3>计算结果</h3>
+                    <p id="food-result">推荐每日食量：<span>--</span></p>
+                    <p id="water-result">推荐每日饮水量：<span>--</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
