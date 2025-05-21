@@ -5,11 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>宠物每日食量与饮水量计算器</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="calculator-card">
             <h1>宠物每日食量与饮水量计算器</h1>
+            
+            <div class="pet-icons">
+                <svg id="dog-icon" class="pet-icon active" viewBox="0 0 24 24" width="32" height="32">
+                    <path d="M21,6h-2c-0.6,0-1,0.4-1,1v0.5L16.5,6c-0.3-0.1-0.5-0.1-0.8,0l-2.4,1H8c-0.6,0-1,0.4-1,1v4c0,0.6,0.4,1,1,1h1v8h2v-8h2.2 l2.6,1.5c0.3,0.2,0.8,0.2,1.1,0L18,13v1c0,0.6,0.4,1,1,1h2c0.6,0,1-0.4,1-1V7C22,6.4,21.6,6,21,6z M19,13h-1V8h1V13z"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                </svg>
+                <svg id="cat-icon" class="pet-icon" viewBox="0 0 24 24" width="32" height="32">
+                    <path d="M17.3,8.2C15.9,6.8,14,6,12,6c-2,0-3.9,0.8-5.3,2.2C5.4,9.5,4.8,11,4.5,12.6c-0.3,1.5-0.1,3.1,0.4,4.4c0.5,1.3,1.4,2.4,2.6,3.2 c1.2,0.8,2.6,1.2,4,1.2c1.7,0.1,3.3-0.4,4.6-1.5c0.6-0.4,1-1.1,1.2-1.8c0.2-0.7,0.2-1.4,0-2.1c-0.2-0.7-0.6-1.3-1.2-1.7 c-0.5-0.4-1.2-0.6-1.9-0.6c-0.6,0-1.2,0.2-1.7,0.5c-0.5,0.3-0.9,0.8-1.1,1.4c-0.1,0.3-0.2,0.6-0.1,0.9c0,0.3,0.1,0.6,0.3,0.8 c0.1,0.2,0.3,0.4,0.6,0.5c0.2,0.1,0.5,0.2,0.7,0.2c0.3,0,0.5-0.1,0.7-0.2c0.2-0.1,0.4-0.3,0.5-0.5c0.1-0.1,0.1-0.2,0.1-0.4 c0-0.1,0-0.3-0.1-0.4c-0.1-0.1-0.2-0.2-0.3-0.2c-0.1-0.1-0.3-0.1-0.4-0.1c-0.1,0-0.2,0-0.3,0.1c-0.1,0.1-0.1,0.2-0.1,0.3 M6.5,9C7.3,9,8,9.7,8,10.5C8,11.3,7.3,12,6.5,12S5,11.3,5,10.5C5,9.7,5.7,9,6.5,9z M17.5,9c0.8,0,1.5,0.7,1.5,1.5 c0,0.8-0.7,1.5-1.5,1.5S16,11.3,16,10.5C16,9.7,16.7,9,17.5,9z"/>
+                </svg>
+            </div>
+            
             <div class="form-group">
                 <label>选择宠物类型：</label>
                 <div class="pet-selector">
@@ -27,6 +39,38 @@
                     <h3>计算结果</h3>
                     <p id="food-result">推荐每日食量：<span>--</span></p>
                     <p id="water-result">推荐每日饮水量：<span>--</span></p>
+                </div>
+            </div>
+            
+            <!-- 新增的记录部分 -->
+            <div class="record-section">
+                <h2>记录每日喂食</h2>
+                <div class="form-group">
+                    <label for="record-date">日期：</label>
+                    <input type="date" id="record-date">
+                </div>
+                <div class="form-group">
+                    <label for="actual-food">实际喂食量 (克)：</label>
+                    <input type="number" id="actual-food" min="0" step="1" placeholder="请输入实际喂食量">
+                </div>
+                <div class="form-group">
+                    <label for="actual-weight">宠物当日体重 (kg)：</label>
+                    <input type="number" id="actual-weight" min="0.1" step="0.1" placeholder="请输入当日体重">
+                </div>
+                <button id="record-btn">记录</button>
+            </div>
+            
+            <!-- 图表展示部分 -->
+            <div class="chart-section">
+                <h2>历史记录</h2>
+                <div class="chart-container">
+                    <canvas id="historyChart"></canvas>
+                </div>
+                <div class="record-list-container">
+                    <h3>详细记录</h3>
+                    <div class="record-list" id="record-list">
+                        <!-- 这里将通过JavaScript动态添加记录 -->
+                    </div>
                 </div>
             </div>
         </div>
