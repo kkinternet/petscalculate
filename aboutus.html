@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 宠物每日食量与饮水量计算器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator-card">
+            <!-- 页面主要内容 -->
+            <div class="about-content">
+                <h1>This is a website of testing</h1>
+                
+                <!-- 返回主页按钮 -->
+                <div class="navigation-section">
+                    <button id="back-home-btn" onclick="window.location.href='index.html'">返回主页</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* 关于我们页面特有样式 */
+        .about-content {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .about-content h1 {
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 40px;
+            color: #1d1d1f;
+            line-height: 1.4;
+        }
+
+        .navigation-section {
+            margin-top: 20px;
+        }
+
+        #back-home-btn {
+            max-width: 200px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 480px) {
+            .about-content h1 {
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</body>
+</html> 
